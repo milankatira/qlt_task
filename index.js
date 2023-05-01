@@ -2,17 +2,20 @@ const express = require("express");
 const mysql = require("mysql");
 const bodyParser = require("body-parser");
 const { check, validationResult } = require("express-validator");
+const cors = require('cors');
+
 
 const app = express();
-const port = 3000;
+const port = 4000;
 
+app.use(cors());
 app.use(bodyParser.json());
 
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "password",
-  database: "mydatabase",
+  password: "new_password",
+  database: "product",
 });
 
 db.connect((err) => {
